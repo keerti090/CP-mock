@@ -1,11 +1,22 @@
 import { Component } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { ButtonComponent } from 'uilib';
+import { AuthLayoutComponent } from '../../layout/auth-layout/auth-layout.component';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule, RouterLink], // Required for ngModel and routerLink
+  imports: [
+    FormsModule,
+    RouterLink,
+    MatFormFieldModule,
+    MatInputModule,
+    ButtonComponent,
+    AuthLayoutComponent,
+  ],
   templateUrl: './login.component.html', // 👈 Points to your new HTML file
   styleUrls: ['./login.component.scss'], // 👈 Points to your SCSS file
 })

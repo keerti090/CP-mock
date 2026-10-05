@@ -1,0 +1,23 @@
+<div class="auth-layout">
+  <appcore-header
+    type="H2"
+    title="StreamOne Ion"
+    subtitle=""
+    [showBackIcon]="false"
+  ></appcore-header>
+
+  <main class="auth-layout__content">
+    <section class="auth-layout__card">
+      <appcore-header
+        type="H3"
+        [title]="title"
+        [subtitle]="subtitle"
+        [showBackIcon]="false"
+      ></appcore-header>
+
+      <ng-content></ng-content>
+    </section>
+  </main>
+
+  <app-footer platform="TC"></app-footer>
+</div>

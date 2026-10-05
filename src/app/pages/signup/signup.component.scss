@@ -1,0 +1,18 @@
+.signup__alert {
+  display: block;
+  margin: 1rem 0;
+}
+
+.signup__form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-top: 1.5rem;
+}
+
+.signup__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}

@@ -1,1 +1,69 @@
-<p>signup works!</p>
+<app-auth-layout title="Create an account" subtitle="Sign up to get started">
+  @if (errorMessage) {
+    <appcore-alert
+      class="signup__alert"
+      type="Error"
+      title="Sign up failed"
+      [description]="errorMessage"
+      [dismissible]="true"
+      (dismiss)="errorMessage = ''"
+    ></appcore-alert>
+  }
+
+  <form #signupForm="ngForm" class="signup__form" (ngSubmit)="onSignup(signupForm)" novalidate>
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input
+        matInput
+        type="email"
+        name="email"
+        [(ngModel)]="email"
+        #emailCtrl="ngModel"
+        required
+        email
+        autocomplete="email"
+        placeholder="Enter your email"
+      />
+      @if (emailCtrl.hasError('required')) {
+        <mat-error>Email is required</mat-error>
+      } @else if (emailCtrl.hasError('email')) {
+        <mat-error>Enter a valid email address</mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <input
+        matInput
+        type="password"
+        name="password"
+        [(ngModel)]="password"
+        #passwordCtrl="ngModel"
+        required
+        minlength="8"
+        autocomplete="new-password"
+        placeholder="Enter password"
+      />
+      @if (passwordCtrl.hasError('required')) {
+        <mat-error>Password is required</mat-error>
+      } @else if (passwordCtrl.hasError('minlength')) {
+        <mat-error>Password must be at least 8 characters</mat-error>
+      }
+    </mat-form-field>
+
+    <div class="signup__actions">
+      <appcore-button
+        label="Cancel"
+        type="secondary"
+        size="medium"
+        (click)="onCancel($event)"
+      ></appcore-button>
+      <appcore-button
+        label="Sign Up"
+        type="primary"
+        size="medium"
+        nativeType="submit"
+      ></appcore-button>
+    </div>
+  </form>
+</app-auth-layout>
